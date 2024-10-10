@@ -4,12 +4,17 @@ import {Server} from 'http'
 const router = Router()
 
 router.get('/',(req: Request,res: Response) => {
-    res.send("Home")
+    res.render("home, {Laylaa}")
+   let user = {
+    name:'Laylaa',
+    idade: 17
+   }
 })
 
 //criando o middwer
 //quando usamos o middlware utilizamos o 'next'
 
+/*
 const interferir: RequestHandler = (reg, res, next) =>{
   let logged = false
   if(logged) {
@@ -20,15 +25,16 @@ const interferir: RequestHandler = (reg, res, next) =>{
 
     next
 }
+*/
 //rota estática
-router.get('/contatos',interferir,(req:Request,res:Response)=>{
+router.get('/contatos',(req:Request,res:Response)=>{
     console.log("Executou a página de contatos")
-    res.send("Aqui é a página de contato")
+    res.render("contato")
 })
 //rota estática
-router.get('/sobre',(req:Request,res:Response)=>{
-
-    res.send("Sobre nós")
+router.get('/Sobre',(req:Request,res:Response)=>{
+  console.log("Executou a página de contatos")
+  res.render("Sobre")
 })
 
 //rota dinâmica
